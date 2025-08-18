@@ -1,0 +1,13 @@
+@use "sass:color";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+
+.home {
+  background: color.adjust(variables.$color-primary, $lightness: 0.4);
+  padding: variables.$spacing-md;
+  text-align: center;
+
+  &__title {
+    @include mixins.responsive-text(2rem);
+  }
+}

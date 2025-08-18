@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-sm;
+  max-width: 500px;
+
+  &__input,
+  &__textarea {
+    padding: 0.75rem;
+    border: 1px solid variables.$color-gray;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  &__button {
+    @include mixins.button(variables.$color-primary, variables.$color-white);
+
+    &:hover {
+      background-color: variables.$color-primary-dark;
+    }
+  }
+}

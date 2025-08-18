@@ -1,0 +1,8 @@
+@use "../abstracts/variables" as variables;
+
+.footer {
+  text-align: center;
+  padding: variables.$spacing-md variables.$spacing-sm;
+  background: variables.$color-footer;
+  margin-top: variables.$spacing-md;
+}

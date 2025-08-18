@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+
+.button-primary {
+  @include mixins.button(variables.$color-primary, variables.$color-white);
+
+  &:hover {
+    background-color: variables.$color-primary-dark;
+  }
+}

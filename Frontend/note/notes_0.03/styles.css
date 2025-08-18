@@ -1,0 +1,53 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Fonte serifada como na imagem */
+  background-color: white;
+  color: black;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Tema escuro */
+body.tema-escuro {
+  background-color: #121212;
+  color: white;
+}
+
+/* Botão no canto superior direito */
+#botaoTema {
+  position: fixed; /* Importante para fixar no canto */
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Parágrafo */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}

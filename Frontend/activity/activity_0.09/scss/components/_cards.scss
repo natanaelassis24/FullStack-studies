@@ -1,0 +1,10 @@
+// scss/layout/_services.scss
+
+@use '../abstracts/variables';
+
+.service-card {
+  background: variables.$color-white;
+  padding: variables.$spacing-sm;
+  border: 1px solid variables.$color-gray;
+  text-align: center;
+}

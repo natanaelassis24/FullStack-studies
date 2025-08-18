@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as variables;
+
+.header {
+  background-color: variables.$color-primary;
+  color: variables.$color-white;
+  padding: variables.$spacing-sm variables.$spacing-md;
+
+  &__nav {}
+
+  .nav__menu {
+    list-style: none;
+    display: flex;
+    gap: variables.$spacing-sm;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .nav__link {
+    color: variables.$color-white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}

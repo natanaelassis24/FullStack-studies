@@ -1,0 +1,79 @@
+/* Estilos Base (aplicam-se a todos os dispositivos) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    font-size: 1rem;       /* Base para unidades rem */
+    line-height: 1.5;
+}
+
+main {
+    width: 90%;
+    margin: 1.25rem auto;  /* 20px ➝ 1.25rem */
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: 0.5rem; /* 8px ➝ 0.5rem */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 1.75rem;     /* Tamanho base responsivo */
+}
+
+/* Esconde a mensagem mobile por padrão */
+.mobile-message {
+    display: none;
+}
+
+/* MEDIA QUERIES (breakpoints mantidos em px por solicitação) */
+
+/* Dispositivos pequenos (celulares, até 600px) */
+@media (max-width: 600px) {
+    body {
+        background-color: #ffebee;
+    }
+
+    h1 {
+        font-size: 1.25rem; /* 20px ➝ 1.25rem */
+        color: #d32f2f;
+    }
+
+    main {
+        width: 95%;
+        padding: 0.625rem;  /* 10px ➝ 0.625rem */
+    }
+
+    .mobile-message {
+        display: block;
+        color: #d32f2f;
+        font-size: italic;
+    }
+}
+/* Dispositivos medios (tablets, 601px a 900px)*/
+@media (min-width: 6001px) and (mas-width: 900px) {
+    body {
+        background-color: #e8f5e9;
+    }
+
+    h1 {
+        color: #2e7d32;
+        font-size: 1.5rem; /* 24px -> 1.5rem */   
+    }
+
+    main {
+        width: 80%;
+    }
+}
+
+/* Dispositivos grandes (desktop, acima de 900px) */
+@media (min-width: 901px) {
+    body {
+        background-color: #e3f2fd;
+    }
+
+    h1 {
+        width: 70%;
+        max-width: 62.5rem;/* 1000 -> 62.5rem */
+    }
+}
+

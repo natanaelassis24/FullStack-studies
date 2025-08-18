@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as variables;
+
+body {
+  font-family: variables.$font-main;
+  line-height: 1.6;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  padding: variables.$spacing-sm;
+}
