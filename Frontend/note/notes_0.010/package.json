@@ -1,0 +1,16 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "@tailwindcss -i ./src/input.css -o ./src/output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.1.12"
+  }
+}
