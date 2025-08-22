@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Tarefa from "./components/Tarefa";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const tarefas = [
+    { id: 1, texto: "Estuda React" },
+    { id: 2, texto: "Fazer compras" },
+    { id: 3, texto: "Responde e-mails" }
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main>
+      <h1>to-do list app</h1>
+      <ul>
+
+        {tarefas.map(tarefa => <Tarefa key={tarefa.id} texto={tarefa.texto} />)}
+
+      </ul>
+    </main>
+  );
 }
 
-export default App
+export default App;
