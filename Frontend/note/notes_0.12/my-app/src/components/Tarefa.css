@@ -1,9 +1,62 @@
-/* Estilo da lista principal */
+/* Container principal */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+form input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus {
+  border-color: #0077ff;
+}
+
+form button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+form button:hover {
+  background-color: #005fd1;
+}
+
+/* Lista de tarefas */
 ul {
   list-style-type: none;
   padding: 0;
-  max-width: 600px;
-  margin: 30px auto;
 }
 
 /* Cada item da tarefa */
@@ -12,16 +65,15 @@ li {
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  border: 1px solid #ddd;
+  border: 1px solid #e2e2e2;
   border-radius: 8px;
   margin-bottom: 12px;
-  background: linear-gradient(to right, #ffffff, #f3f7fa);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: #fafafa;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 li:hover {
-  background-color: #e9f0f5;
+  background-color: #f0f8ff;
   transform: scale(1.01);
 }
 
@@ -52,7 +104,7 @@ input[type="checkbox"] {
 
 /* Botão remover */
 button {
-  background-color: #ff4d4f;
+  background-color: #0077ff;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -63,6 +115,6 @@ button {
 }
 
 button:hover {
-  background-color: #d9363e;
+  background-color: #0077ff;
   transform: scale(1.05);
 }
