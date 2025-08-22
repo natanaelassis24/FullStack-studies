@@ -2,9 +2,8 @@
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  max-width: 500px;
-  margin: 20px auto;
+  max-width: 600px;
+  margin: 30px auto;
 }
 
 /* Cada item da tarefa */
@@ -12,51 +11,58 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  transition: background-color 0.2s ease;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #ffffff, #f3f7fa);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Efeito hover */
 li:hover {
-  background-color: #f0f0f0;
+  background-color: #e9f0f5;
+  transform: scale(1.01);
 }
 
 /* Texto da tarefa */
 li span {
   flex-grow: 1;
-  margin-left: 10px;
-  font-size: 16px;
+  margin-left: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+  word-break: break-word;
 }
 
 /* Estilo da tarefa concluída */
 .concluida {
   text-decoration: line-through;
-  color: gray;
-  opacity: 0.7;
+  color: #999;
+  opacity: 0.6;
 }
 
 /* Checkbox */
 input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
+  accent-color: #0077ff;
 }
 
 /* Botão remover */
 button {
-  background-color: #0e0d0d;
+  background-color: #ff4d4f;
   color: white;
   border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: #0f0e0e;
+  background-color: #d9363e;
+  transform: scale(1.05);
 }
