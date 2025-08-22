@@ -1,30 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tarefa from "./components/Tarefa";
 
+const API_URL = 'https://crudcrud.com/api/8bfd91e8118b4d5995bb46a34f372eb8/tarefas';
+
 function App() {
-
-  const [tarefas, setTarefas] = useState([
-    { id: 1, texto: "Estuda React" },
-    { id: 2, texto: "Fazer compras" },
-    { id: 3, texto: "Responde e-mails" }
-  ]);
-
+  const [tarefas, setTarefas] = useState([]);
   const [novaTarefa, setNovaTarefa] = useState('');
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(dados => setTarefas(dados))
+      .catch(erro => console.error("Erro ao buscar tarefas:", erro));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if(novaTarefa.trim() === '') return;
 
-    const novoId = tarefas.length > 0 ? tarefas[tarefas.length - 1].id + 1 : 1;
-
     const nova = {
-      id: novoId,
       texto: novaTarefa.trim()
     };
 
-    setTarefas([...tarefas, nova]);
-    setNovaTarefa('');
+    // Envia a nova tarefa para a API
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nova)
+    })
+    .then(res => res.json())
+    .then(tarefaCriada => {
+      setTarefas([...tarefas, tarefaCriada]);
+      setNovaTarefa('');
+    })
+    .catch(erro => console.error('Erro ao adicionar tarefa:', erro));
   }
 
   return (
@@ -41,7 +53,7 @@ function App() {
       </form>
       <ul>
         {tarefas.map(tarefa => (
-          <Tarefa key={tarefa.id} texto={tarefa.texto} />
+          <Tarefa key={tarefa._id} texto={tarefa.texto} />
         ))}
       </ul>
     </main>
