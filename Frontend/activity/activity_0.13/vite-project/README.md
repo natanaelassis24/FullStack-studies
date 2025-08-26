@@ -1,28 +1,22 @@
-# React + Vite
+# Todo List Avançado com React e Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de lista de tarefas (Todo List) desenvolvido com React e Vite, utilizando Context API, hooks personalizados e memoização para uma experiência otimizada e reativa.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18+**: Biblioteca para construir interfaces de usuário.
+- **Vite**: Ferramenta moderna de build para desenvolvimento frontend.
+- **Context API + useReducer**: Para gerenciamento de estado global da aplicação.
+- **Hooks personalizados**: Como `useLocalStorage` para persistência dos dados.
+- **CSS Básico**: Para estilização simples e funcional do aplicativo.
 
-## Expanding the ESLint configuration
+## Como Rodar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone este repositório  
+2. Execute `npm install` para instalar as dependências  
+3. Execute `npm run dev` para iniciar o servidor de desenvolvimento  
+4. Abra `http://localhost:5173` no navegador
 
+---
 
-# VITE-PROJECT
-
-## Tecnologias utilizadas
-- React
-- Context API
-- Hooks (useState, useEffect, useContext, useReducer, useMemo)
-- Custom Hooks
-
-## Como rodar localmente
-```bash
-git clone https://github.com/seu-usuario/todo-react-avancado
-cd todo-react-avancado
-npm install
-npm run dev
+Projeto criado como parte de estudos para aprendizado avançado em React e gerenciamento de estado.
