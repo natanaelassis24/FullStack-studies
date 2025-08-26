@@ -1,0 +1,109 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  padding: 2rem;
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li span {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+}
+
+li span.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+button.remove-btn {
+  background-color: #e74c3c;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+button.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+div.filters {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+div.filters button {
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #4caf50;
+  background-color: white;
+  color: #4caf50;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+div.filters button.active,
+div.filters button:hover {
+  background-color: #4caf50;
+  color: white;
+}
