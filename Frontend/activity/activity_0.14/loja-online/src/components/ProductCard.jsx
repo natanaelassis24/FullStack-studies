@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
-const Card = styled.div`
+const Card = styled.article`
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: white;
+  width: 220px;
+  box-sizing: border-box;
+`;
+
+const ProductImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
 `;
 
 const Botao = styled.button`
@@ -25,8 +34,11 @@ const Botao = styled.button`
 export default function ProductCard({ product, onAddToCart, adicionado }) {
   return (
     <Card>
-      <h3>{product.name}</h3>
-      <p>Preço: R$ {product.price.toFixed(2)}</p>
+      {product.image && (
+        <ProductImage src={product.image} alt={product.name || 'Produto'} />
+      )}
+      <h3>{product.name || 'Produto sem nome'}</h3>
+      <p>Preço: R$ {product.price?.toFixed(2) || '0.00'}</p>
       <Botao
         adicionado={adicionado}
         onClick={() => onAddToCart(product)}

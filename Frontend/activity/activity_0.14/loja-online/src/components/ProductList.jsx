@@ -1,23 +1,23 @@
+import styled from 'styled-components';
 import CardProduto from './CardProduto';
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
 
 export default function ProductList({ products, onAddToCart }) {
   return (
-    <div
-      role="list"
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '1rem'
-      }}
-    >
+    <ListContainer role="list">
       {products.map(product => (
-        <CardProduto
-          key={product.id}
-          product={product}
-          onAddToCart={onAddToCart}
-          role="listitem" // se possível, ou dentro de CardProduto
-        />
+        <div key={product.id} role="listitem">
+          <CardProduto
+            product={product}
+            onAddToCart={onAddToCart}
+          />
+        </div>
       ))}
-    </div>
+    </ListContainer>
   );
 }

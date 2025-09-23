@@ -1,6 +1,31 @@
-export default function FilterSidebar({ categories, selectedCategory, onSelectCategory }) {
+import styled from 'styled-components';
 
-  // Função para ativar seleção via teclado
+// Estilos principais
+const Sidebar = styled.aside`
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+`;
+
+const CategoryList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const CategoryItem = styled.li`
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
+
+  &:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+  }
+`;
+
+export default function FilterSidebar({ categories, selectedCategory, onSelectCategory }) {
+  // Ativa categoria com Enter ou Espaço
   function handleKeyDown(e, cat) {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -9,45 +34,34 @@ export default function FilterSidebar({ categories, selectedCategory, onSelectCa
   }
 
   return (
-    <aside style={{
-      width: '200px', 
-      borderRight: '1px solid #ccc', 
-      padding: '1rem'
-    }}>
+    <Sidebar>
       <h3>Categorias</h3>
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        <li 
+      <CategoryList>
+        <CategoryItem
           role="button"
           tabIndex={0}
           aria-pressed={!selectedCategory}
-          style={{ 
-            cursor: 'pointer', 
-            fontWeight: !selectedCategory ? 'bold' : 'normal', 
-            marginBottom: '0.5rem' 
-          }}
+          selected={!selectedCategory}
           onClick={() => onSelectCategory('')}
           onKeyDown={(e) => handleKeyDown(e, '')}
         >
           Todas
-        </li>
-        {categories.map(cat => (
-          <li
+        </CategoryItem>
+
+        {categories.map((cat) => (
+          <CategoryItem
             key={cat}
             role="button"
             tabIndex={0}
             aria-pressed={selectedCategory === cat}
-            style={{
-              cursor: 'pointer', 
-              fontWeight: selectedCategory === cat ? 'bold' : 'normal',
-              marginBottom: '0.5rem'
-            }}
+            selected={selectedCategory === cat}
             onClick={() => onSelectCategory(cat)}
             onKeyDown={(e) => handleKeyDown(e, cat)}
           >
             {cat}
-          </li>
+          </CategoryItem>
         ))}
-      </ul>
-    </aside>
+      </CategoryList>
+    </Sidebar>
   );
 }
