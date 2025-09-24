@@ -51,6 +51,12 @@ export default function App() {
     });
   }
 
+  // Aqui vamos criar um estado para guardar os IDs adicionados, sincronizando com o carrinho
+  // Assim o ProductList pode saber quais botões mostrar como "adicionado"
+  // O estado será derivado diretamente do cartItems para evitar desincronização
+
+  const produtosAdicionadosIds = cartItems.map(item => item.id);
+
   return (
     <>
       <Navbar
@@ -64,7 +70,11 @@ export default function App() {
           onSelectCategory={setSelectedCategory}
         />
         <main style={{ flex: 1, padding: '0 1rem' }}>
-          <ProductList products={filteredProducts} onAddToCart={handleAddToCart} />
+          <ProductList
+            products={filteredProducts}
+            onAddToCart={handleAddToCart}
+            produtosAdicionadosIds={produtosAdicionadosIds} // passa a lista pro ProductList
+          />
         </main>
         {cartVisible && (
           <Cart cartItems={cartItems} onRemoveItem={handleRemoveItem} />

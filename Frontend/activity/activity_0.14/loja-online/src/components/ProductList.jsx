@@ -7,7 +7,7 @@ const ListContainer = styled.div`
   gap: 1rem;
 `;
 
-export default function ProductList({ products, onAddToCart }) {
+export default function ProductList({ products, onAddToCart, produtosAdicionadosIds }) {
   return (
     <ListContainer role="list">
       {products.map(product => (
@@ -15,6 +15,7 @@ export default function ProductList({ products, onAddToCart }) {
           <CardProduto
             product={product}
             onAddToCart={onAddToCart}
+            adicionado={produtosAdicionadosIds.includes(product.id)} // aqui o botão vai mudar de cor conforme o carrinho
           />
         </div>
       ))}

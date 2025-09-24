@@ -15,7 +15,7 @@ const ProductImage = styled.img`
   border-radius: 4px;
 `;
 
-// Botão dinâmico
+// Botão dinâmico com transição e hover
 const AddButton = styled.button`
   padding: 0.5rem 1rem;
   background-color: ${(props) => (props.adicionado ? '#198754' : '#6c757d')};
@@ -23,6 +23,11 @@ const AddButton = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => (props.adicionado ? '#146c43' : '#5a6268')};
+  }
 `;
 
 export default function CardProduto({ product, onAddToCart, adicionado }) {
@@ -32,7 +37,7 @@ export default function CardProduto({ product, onAddToCart, adicionado }) {
       <h4>{product.name}</h4>
       <p>{product.description}</p>
       <p><b>R$ {product.price.toFixed(2)}</b></p>
-      <AddButton 
+      <AddButton
         onClick={() => onAddToCart(product)}
         adicionado={adicionado}
         aria-label={`Adicionar ${product.name} ao carrinho`}
