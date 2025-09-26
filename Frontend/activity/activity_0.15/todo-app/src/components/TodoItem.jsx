@@ -9,23 +9,23 @@ export default function TodoItem({ item }) {
     const newList = [...todoList]
     newList[index] = {
       ...item,
-      isComplete: !item.isComplete,
+      completed: !item.completed,
     }
     setTodoList(newList)
   }
 
   const removeItem = () => {
-    const newList = todoList.filter((_, i) => i !== index)
+    const newList = todoList.filter((todo) => todo.id !== item.id)
     setTodoList(newList)
   }
 
   return (
     <div style={{ marginBottom: '0.5rem' }}>
-      <span style={{ textDecoration: item.isComplete ? 'line-through' : 'none', marginRight: '1rem' }}>
+      <span style={{ textDecoration: item.completed ? 'line-through' : 'none', marginRight: '1rem' }}>
         {item.text}
       </span>
       <button onClick={toggleComplete}>
-        {item.isComplete ? 'Desfazer' : 'Concluir'}
+        {item.completed ? 'Desfazer' : 'Concluir'}
       </button>
       <button onClick={removeItem} style={{ marginLeft: '0.5rem' }}>
         Remover

@@ -9,33 +9,33 @@ import './App.css'
 
 export default function App() {
   const [todoList, setTodoList] = useRecoilState(todoListState)
-  const [selectedTodoId, setSelectedTodoId] = useState(null) // Estado da tarefa selecionada
+  const [selectedTodoId, setSelectedTodoId] = useState(null)
 
+  // Carregar tarefas da API na montagem
   useEffect(() => {
     async function fetchTodos() {
       try {
         const todosFromApi = await getTodos()
-        const formatted = todosFromApi.map(({ _id, ...rest }) => ({
-          id: _id,
-          ...rest,
-        }))
-        setTodoList(formatted)
+        setTodoList(todosFromApi)
       } catch (err) {
-        console.error(err)
+        console.error('Erro ao carregar tarefas:', err)
       }
     }
     fetchTodos()
-  }, [])
+  }, [setTodoList])
 
+  // Adicionar tarefa
   async function handleAddTodo(todo) {
     try {
       const savedTodo = await addTodo(todo)
+      // O ID vem como _id da API, ajustamos para id
       setTodoList(old => [...old, { id: savedTodo._id, ...todo }])
     } catch (err) {
-      console.error(err)
+      console.error('Erro ao adicionar tarefa:', err)
     }
   }
 
+  // Atualizar tarefa
   async function handleUpdateTodo(id, updatedTodo) {
     try {
       await updateTodo(id, updatedTodo)
@@ -43,22 +43,22 @@ export default function App() {
         old.map(todo => (todo.id === id ? { id, ...updatedTodo } : todo))
       )
     } catch (err) {
-      console.error(err)
+      console.error('Erro ao atualizar tarefa:', err)
     }
   }
 
+  // Deletar tarefa
   async function handleDeleteTodo(id) {
     try {
       await deleteTodo(id)
       setTodoList(old => old.filter(todo => todo.id !== id))
-      // Limpa seleção se a tarefa deletada era a selecionada
       if (selectedTodoId === id) setSelectedTodoId(null)
     } catch (err) {
-      console.error(err)
+      console.error('Erro ao deletar tarefa:', err)
     }
   }
 
-  // Função para selecionar uma tarefa (passar para TodoList)
+  // Selecionar tarefa
   function handleSelectTodo(id) {
     setSelectedTodoId(id)
   }
@@ -70,8 +70,8 @@ export default function App() {
       <TodoFilters />
       <TodoList
         todos={todoList}
-        selectedTodoId={selectedTodoId}       // passa o id selecionado
-        onSelectTodo={handleSelectTodo}       // passa a função para selecionar
+        selectedTodoId={selectedTodoId}
+        onSelectTodo={handleSelectTodo}
         onUpdateTodo={handleUpdateTodo}
         onDeleteTodo={handleDeleteTodo}
       />

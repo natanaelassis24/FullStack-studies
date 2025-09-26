@@ -10,9 +10,9 @@ export const filteredTodoList = selector({
 
     switch (filter) {
       case 'completed':
-        return list.filter((item) => item.isComplete)
+        return list.filter((item) => item.completed)
       case 'pending':
-        return list.filter((item) => !item.isComplete)
+        return list.filter((item) => !item.completed)
       default:
         return list
     }

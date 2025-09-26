@@ -1,6 +1,21 @@
-export default function TodoList({ todos, selectedTodoId, onSelectTodo, onUpdateTodo, onDeleteTodo }) {
-  function toggleCompleted(todo) {
-    onUpdateTodo(todo.id, { ...todo, completed: !todo.completed })
+import { useRecoilValue, useRecoilState } from 'recoil'
+import { filteredTodoList } from '../selectors/filteredTodoList'
+import { todoListState } from '../atoms/todoListState'
+
+export default function TodoList() {
+  const todos = useRecoilValue(filteredTodoList)
+  const [todoList, setTodoList] = useRecoilState(todoListState)
+
+  const toggleCompleted = (todoId) => {
+    const updatedList = todoList.map(todo =>
+      todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+    )
+    setTodoList(updatedList)
+  }
+
+  const deleteTodo = (todoId) => {
+    const updatedList = todoList.filter(todo => todo.id !== todoId)
+    setTodoList(updatedList)
   }
 
   return (
@@ -8,13 +23,12 @@ export default function TodoList({ todos, selectedTodoId, onSelectTodo, onUpdate
       {todos.map(todo => (
         <li
           key={todo.id}
-          onClick={() => onSelectTodo(todo.id)}
           style={{
-            backgroundColor: todo.id === selectedTodoId ? '#d3f9d8' : 'transparent',
             cursor: 'pointer',
             padding: '0.5rem',
             borderRadius: '4px',
-            marginBottom: '0.3rem'
+            marginBottom: '0.3rem',
+            backgroundColor: todo.completed ? '#e0e0e0' : 'transparent'
           }}
         >
           <label
@@ -23,20 +37,16 @@ export default function TodoList({ todos, selectedTodoId, onSelectTodo, onUpdate
               userSelect: 'none',
               cursor: 'pointer',
             }}
-            onClick={e => e.stopPropagation()} // evita seleção ao clicar no label
           >
             <input
               type="checkbox"
               checked={todo.completed}
-              onChange={() => toggleCompleted(todo)}
+              onChange={() => toggleCompleted(todo.id)}
             />
             {todo.text}
           </label>
           <button
-            onClick={e => {
-              e.stopPropagation() // evita disparar onSelectTodo ao clicar no botão
-              onDeleteTodo(todo.id)
-            }}
+            onClick={() => deleteTodo(todo.id)}
             style={{ marginLeft: '1rem' }}
           >
             Excluir
