@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "titulo": "Primeiro artigo do blog",
+    "autor": "João Silva",
+    "data": "2025-09-01",
+    "conteudo": "Este é o conteúdo do primeiro artigo. Ele fala sobre como começar com Next.js App Router."
+  },
+  {
+    "id": "2",
+    "titulo": "Outro artigo legal",
+    "autor": "Maria Souza",
+    "data": "2025-09-10",
+    "conteudo": "Este artigo fala sobre como usar Server Components para melhorar a performance do seu site."
+  },
+  {
+    "id": "3",
+    "titulo": "Como fazer deploy no Vercel",
+    "autor": "Lucas Pereira",
+    "data": "2025-09-15",
+    "conteudo": "Aprenda como subir seu projeto no Vercel, conectar com GitHub e fazer deploy contínuo."
+  },
+  {
+    "id": "4",
+    "titulo": "Usando generateMetadata no Next.js",
+    "autor": "Ana Costa",
+    "data": "2025-09-20",
+    "conteudo": "Entenda como criar SEO dinâmico usando a função generateMetadata com App Router."
+  },
+  {
+    "id": "5",
+    "titulo": "Diferenças entre SSR e SSG",
+    "autor": "Bruno Lima",
+    "data": "2025-09-25",
+    "conteudo": "Este artigo explica as diferenças práticas entre Server-Side Rendering (SSR) e Static Site Generation (SSG)."
+  }
+]
