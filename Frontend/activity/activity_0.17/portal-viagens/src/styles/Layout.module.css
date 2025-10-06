@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(90deg, #FF6B00, #FF8E00);
+  color: white;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+/* Aplica o estilo direto para os links gerados pelo next/link */
+.nav :global(a) {
+  margin-left: 1.8rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav :global(a):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer {
+  background: #222;
+  color: #eee;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+.social :global(a) {
+  color: #ff8e00;
+  margin: 0 0.7rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.social :global(a):hover {
+  text-decoration: underline;
+}
