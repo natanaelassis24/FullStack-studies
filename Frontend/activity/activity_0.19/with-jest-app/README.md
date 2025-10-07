@@ -1,43 +1,60 @@
-# Next.js + Jest
+Lista de Tarefas com Next.js 15 e Testes Unitários
 
-This example shows how to configure Jest to work with Next.js.
+Este projeto é uma aplicação simples de lista de tarefas, construída com Next.js 15 (App Router) e TypeScript. Implementa funcionalidades de adição de tarefas, contagem usando hook personalizado, e testes unitários com Jest e Testing Library.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+Funcionalidades
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
+Exibição de uma lista inicial de tarefas (simulada localmente).
 
-## Deploy your own
+Adição de novas tarefas via formulário controlado no componente <NovaTarefa />.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
+Contador dinâmico de tarefas usando hook personalizado useContadorDeTarefas.
 
-## How to Use
+Testes unitários cobrindo componentes e hooks principais.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Tecnologias
 
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
+Next.js 15 (App Router)
 
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
+React 18 (Client e Server Components)
 
-```bash
-pnpm create next-app --example with-jest with-jest-app
-```
+TypeScript
 
-## Running Tests
+Jest + React Testing Library
 
-```bash
-npm test
-```
+Como rodar o projeto
 
-```bash
-yarn test
-```
+Clone o repositório:
 
-```bash
-pnpm test
-```
+git clone <URL_DO_REPOSITÓRIO>
+cd <NOME_DA_PASTA>
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+Instale as dependências:
+
+npm install
+
+
+Rode o servidor de desenvolvimento:
+
+npm run dev
+
+
+Execute os testes:
+
+npm run test
+
+Estrutura do projeto
+/src
+  /app
+    page.tsx              # Server Component principal
+  /components
+    NovaTarefa.tsx        # Componente Client para adicionar tarefas
+  /hooks
+    useContadorDeTarefas.ts # Hook personalizado para contagem de tarefas
+  /data
+    tarefas.ts            # Dados simulados da lista de tarefas
+/tests
+  NovaTarefa.test.tsx     # Testes do componente NovaTarefa
+  useContadorDeTarefas.test.ts # Testes do hook
+  page.test.tsx           # Testes da página principal
