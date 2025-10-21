@@ -37,22 +37,27 @@ self.addEventListener('activate', (evt) => {
 
 // Intercepta requisições e responde com cache atualizado
 self.addEventListener('fetch', (evt) => {
+  // Ignora requisições que não sejam http(s) para evitar erros com chrome-extension:// etc
+  if (!evt.request.url.startsWith('http')) {
+    return;
+  }
+
   evt.respondWith(
     caches.match(evt.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Retorna do cache e faz fetch para atualizar em background
+        // Retorna do cache e atualiza em background
         evt.waitUntil(
           fetch(evt.request).then(networkResponse => {
             return caches.open(CACHE_NAME).then(cache => {
               cache.put(evt.request, networkResponse.clone());
             });
           }).catch(() => {
-            // Se fetch falhar, mantém cache antigo
+            // Falha no fetch, mantém cache antigo
           })
         );
         return cachedResponse;
       }
-      // Se não tiver no cache, busca da rede e adiciona ao cache
+      // Se não estiver no cache, busca da rede, adiciona ao cache e retorna
       return fetch(evt.request).then(networkResponse => {
         return caches.open(CACHE_NAME).then(cache => {
           cache.put(evt.request, networkResponse.clone());

@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Diário de Bordo - Aplicativo PWA">
   <title>Diário de Bordo</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <meta name="theme-color" content="#1976d2"/>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Ícones -->
+  <link rel="icon" href="/icons/icon-192.png" sizes="192x192">
+  <link rel="icon" href="/icons/icon-512.png" sizes="512x512">
 </head>
 <body>
-  <h1>📘 Diário de Bordo</h1>
+  <h1>Diário de Bordo</h1>
   
+  <!-- Formulário de Entrada -->
   <form id="entry-form">
-    <input type="text" id="title" placeholder="Título" required />
-    <input type="date" id="date" required />
-    <textarea id="description" placeholder="Descrição" required></textarea>
-    <button type="submit">Salvar Entrada</button>
+    <input type="text" id="title" placeholder="Título" required>
+    <input type="date" id="date" required>
+    <textarea id="description" placeholder="Descrição"></textarea>
+    <button type="submit">Adicionar Entrada</button>
   </form>
-
+  
+  <!-- Lista de Entradas -->
   <ul id="entries-list"></ul>
 
+  <!-- Botão de Instalação PWA -->
+  <button id="btn-install" style="display:none;">Instalar Diário de Bordo</button>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
