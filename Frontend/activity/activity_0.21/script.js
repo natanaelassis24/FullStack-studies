@@ -19,7 +19,7 @@ function renderEntries() {
     entriesList.appendChild(li);
   });
 
-  // Delegação de evento para os botões remover
+  // Delegação de evento para os botões "Remover"
   entriesList.querySelectorAll('.remove').forEach(button => {
     button.addEventListener('click', (e) => {
       const idx = e.target.getAttribute('data-index');
@@ -55,10 +55,11 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('load', () => {
   renderEntries();
 
+  // ✅ Registro do Service Worker com caminho absoluto
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('Service Worker registrado com sucesso.'))
-      .catch(err => console.log('Erro ao registrar Service Worker:', err));
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('✅ Service Worker registrado com sucesso.'))
+      .catch(err => console.error('❌ Erro ao registrar Service Worker:', err));
   }
 
   let deferredPrompt;
@@ -71,9 +72,10 @@ window.addEventListener('load', () => {
 
     installBtn.addEventListener('click', () => {
       installBtn.style.display = 'none';  // esconde o botão após clique
-      deferredPrompt.prompt();             // exibe o prompt de instalação
+      deferredPrompt.prompt();            // exibe o prompt de instalação
+
       deferredPrompt.userChoice.then((choiceResult) => {
-        deferredPrompt = null;             // reseta o prompt
+        deferredPrompt = null;            // reseta o prompt
         if (choiceResult.outcome === 'accepted') {
           console.log('Usuário aceitou a instalação.');
         } else {
